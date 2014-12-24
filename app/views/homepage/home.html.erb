@@ -1,0 +1,25 @@
+<h1>Homepage#home</h1>
+<p>Find me in app/views/homepage/home.html.erb</p>
+<H1>Welcome to our mini Twitter app</h1>
+
+<% if flash[:notice] %>
+<div id="notice"><%= flash[:notice] %></div>
+<% end %>
+
+
+<h3>Create new post </h3>
+<%= form_tag :action => "create" do %>
+    <%= text_area :post_form, :new_post, :cols => '40', :rows => '5' %>
+    <%= submit_tag "Post" %>
+<% end %>
+
+
+
+
+<table>
+<% @home_posts.each do |post| %>
+ <tr> <td><%= post.content %></td>
+      <td>&nbsp;<%=link_to("Delete",posts_destroy_path(:id =>post.id),:method=>:delete) %> </td> 
+ </tr>
+<% end %>
+</table>

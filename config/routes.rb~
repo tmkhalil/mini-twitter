@@ -6,6 +6,7 @@ Twitter::Application.routes.draw do
   post "homepage/create"
   devise_for :users
   resources :users
+  resources :posts
   get "homepage/home"
   root :to => "homepage#home"
   

@@ -1,0 +1,15 @@
+class UsersController < ApplicationController
+  before_filter :authenticate_user!
+
+  def show
+    if user_signed_in?
+      @user_posts = User.find(params[:id]).posts
+    end
+  end
+
+  def index
+    @all_users = User.all
+    
+  end
+
+end

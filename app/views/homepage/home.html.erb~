@@ -21,18 +21,14 @@
 
 <h3>Timeline</h3>
 <table>
-<%@followed_users.each do |user|%>
-<% user.posts.each do |post| %>
+
+<% @feed.each do |post| %>
  <tr> <td><%= post.content %></td>
+      <%if post in current_user.posts%>
       <td>&nbsp;<%=link_to("Delete",posts_destroy_path(:id =>post.id),:method=>:delete) %> </td> 
+      <%end%>
  </tr>
-<% end %>
 <% end %>
 
-<% current_user.posts.each do |post| %>
- <tr> <td><%= post.content %></td>
-      <td>&nbsp;<%=link_to("Delete",posts_destroy_path(:id =>post.id),:method=>:delete) %> </td> 
- </tr>
-<% end %>
 
 </table>

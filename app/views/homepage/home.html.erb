@@ -24,7 +24,9 @@
 
 <% @feed.each do |post| %>
  <tr> <td><%= post.content %></td>
+      <%if current_user.posts.include? post%>
       <td>&nbsp;<%=link_to("Delete",posts_destroy_path(:id =>post.id),:method=>:delete) %> </td> 
+      <%end%>
  </tr>
 <% end %>
 

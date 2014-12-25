@@ -5,7 +5,11 @@ Twitter::Application.routes.draw do
   get "users/show"
   post "homepage/create"
   devise_for :users
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   get "homepage/home"
   root :to => "homepage#home"
   

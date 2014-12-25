@@ -1,7 +1,8 @@
 class HomepageController < ApplicationController
-  #before_filter :authenticate_user!
+  before_filter :authenticate_user!
   def home
-    @home_posts = Post.all
+    #@home_posts = Post.all
+    @home_users = current_user.followed_users
   end
 
   def create

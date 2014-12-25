@@ -4,6 +4,12 @@
 <div id="notice"><%= flash[:notice] %></div>
 <% end %>
 
+<H1>Welcome to our mini Twitter app <%=current_user.email%></h1>
+<h3>Following: <%=link_to(@following.count,following_user_path(current_user))%></h3>
+<h3>Followers: <%=link_to(@followers.count,followers_user_path(current_user))%></h3>
+
+<h3>Your posts: </h3>
+
 <table>
 <% @user_posts.each do |post| %>
  <tr> <td><%= post.content %></td>

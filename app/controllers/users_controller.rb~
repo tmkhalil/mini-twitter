@@ -19,8 +19,6 @@ class UsersController < ApplicationController
     @followers = User.find(params[:id]).followers
   end
   
-  def feed
-  end
   
 
 end

@@ -3,8 +3,8 @@ class UsersController < ApplicationController
 
   def show
     @user_posts = User.find(params[:id]).posts
-    @following = current_user.followed_users
-    @followers = current_user.followers
+    @following = User.find(params[:id]).followed_users
+    @followers = User.find(params[:id]).followers
   end
 
   def index

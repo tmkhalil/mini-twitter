@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @user_posts = User.find(params[:id]).posts
     @following = User.find(params[:id]).followed_users
     @followers = User.find(params[:id]).followers
+    @user = User.find(params[:id])
   end
 
   def index

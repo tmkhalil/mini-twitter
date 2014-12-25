@@ -12,6 +12,9 @@ Twitter::Application.routes.draw do
   end
   get "homepage/home"
   root :to => "homepage#home"
+
+  resources :relationships, only: [:create, :destroy]
+
   
 
   # The priority is based upon order of creation:

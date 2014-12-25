@@ -7,7 +7,20 @@
 <H1>Welcome to our mini Twitter app </h1>
 <h3>Following: <%=link_to(@following.count,following_user_path)%></h3>
 <h3>Followers: <%=link_to(@followers.count,followers_user_path)%></h3>
-<%= button_to "Follow"%>
+
+
+<% unless current_user == @user %>
+<div id="follow_form">
+<% if current_user.following?(@user) %>
+<%= render 'unfollow' %>
+<% else %>
+<%= render 'follow' %>
+<% end %>
+</div>
+<% end %>
+
+
+
 <h3>User posts: </h3>
 
 <table>

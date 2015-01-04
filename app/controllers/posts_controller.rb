@@ -5,9 +5,6 @@ class PostsController < ApplicationController
     post.destroy
     redirect_to(homepage_home_path,notice:"The post has been destroyed successfully")
   end
-
-  def update
-  end
   
 
   def is_authurized

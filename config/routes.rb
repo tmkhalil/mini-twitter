@@ -1,7 +1,6 @@
 Twitter::Application.routes.draw do
 
   delete "posts/destroy"
-
   get "users/show"
   post "homepage/create"
   devise_for :users
@@ -12,7 +11,6 @@ Twitter::Application.routes.draw do
   end
   get "homepage/home"
   root :to => "homepage#home"
-
   resources :relationships, only: [:create, :destroy]
 
   

@@ -12,7 +12,7 @@
 <h3>Followers: <%=link_to(@followers.count,followers_user_path(current_user))%></h3>
 
 <h3>Create new post </h3>
-<%= form_tag :action => "create" do %>
+<%= form_tag ({controller:posts,:action => "create"},method: "post") do %>
     <%= text_area :post_form, :new_post, :cols => '40', :rows => '5' %>
     <%= submit_tag "Post" %>
 <% end %>
@@ -24,7 +24,7 @@
 
 <% @feed.each do |post| %>
  <tr> <td><%= post.content %></td>
-      <%if post in current_user.posts%>
+      <%if current_user.posts.include? post%>
       <td>&nbsp;<%=link_to("Delete",posts_destroy_path(:id =>post.id),:method=>:delete) %> </td> 
       <%end%>
  </tr>
